@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sirli Nevromassaj — Hech qanday dorilarsiz, Nevromassaj texnikalari yordamida bolalarda uchraydigan 5 ta xavfli kasalliklarning oldini olish va davolash." />
+  <title>Sirli Kokteyl formulasi – Nargiza Khayitbayevna</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:        #22c55e;
+      --green-dark:   #16a34a;
+      --green-light:  #dcfce7;
+      --green-border: #bbf7d0;
+      --text:         #111827;
+      --text-muted:   #6b7280;
+      --white:        #ffffff;
+      --bg:           #f8fafc;
+      --radius:       14px;
+      --shadow:       0 4px 24px rgba(0,0,0,.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 480px;
+      margin: 0 auto;
+      background: var(--white);
+      min-height: 100vh;
+      position: relative;
+      box-shadow: 0 0 60px rgba(0,0,0,.06);
+    }
+
+    /* ─── Header ─── */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px 14px;
+      border-bottom: 1px solid #f0f4f8;
+      background: var(--white);
+    }
+
+    .header-date {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--green-dark);
+    }
+
+    .header-date svg { flex-shrink: 0; }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+    }
+
+    .header-time {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--text);
+      letter-spacing: .5px;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: 20px 24px 20px;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(24px, 4.3vw, 36px);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--text);
+      letter-spacing: -.5px;
+      animation: fadeDown .7s .1s ease both;
+    }
+
+    .hero-title span { color: var(--green-dark); }
+
+    /* ─── Description Card ─── */
+    .desc-card {
+      margin: 22px 24px 0;
+      padding: 18px 20px;
+      border: 2px solid var(--green-border);
+      border-radius: var(--radius);
+      background: #f0fdf4;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.6;
+      color: #166534;
+      animation: fadeUp .7s .2s ease both;
+      transform: rotate(-1.8deg) !important;
+      transform-origin: left center;
+      box-shadow: 2px 4px 16px rgba(34,197,94,.10);
+    }
+
+    /* ─── Content ─── */
+    .content { padding: 28px 20px 0; }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    /* ─── Two Column ─── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: start;
+    }
+
+    /* ─── Checklist ─── */
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      animation: fadeUp .6s ease both;
+    }
+
+    .checklist li:nth-child(1) { animation-delay: .15s; }
+    .checklist li:nth-child(2) { animation-delay: .25s; }
+    .checklist li:nth-child(3) { animation-delay: .35s; }
+    .checklist li:nth-child(4) { animation-delay: .45s; }
+    .checklist li:nth-child(5) { animation-delay: .55s; }
+
+    .check-icon {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      background: var(--green);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-top: 1px;
+    }
+
+    .check-icon svg { display: block; }
+    .checklist strong { font-weight: 700; }
+
+    /* ─── Doctor Column ─── */
+    .doctor-card {
+      width: 150px;
+      flex-shrink: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .doctor-img-wrap {
+      width: 100%;
+      line-height: 0;
+      margin-top: -8px;
+    }
+
+    .doctor-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      object-position: top center;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+    }
+
+    .doctor-info {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.13);
+      padding: 10px 10px 12px;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+      margin-top: 8px;
+      transform: rotate(1.8deg) !important;
+    }
+
+    .doctor-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10.5px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.35;
+      text-transform: uppercase;
+      letter-spacing: .3px;
+      transform: skewX(-8deg);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .doctor-title {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-weight: 600;
+      line-height: 1.4;
+      transform: skewX(-8deg);
+      display: block;
+    }
+
+    /* ─── CTA ─── */
+    .cta-wrap { padding: 28px 20px 20px; }
+
+    .cta-btn {
+      display: block;
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 28px rgba(34,197,94,.4);
+      transition: transform .18s ease, box-shadow .18s ease;
+      position: relative;
+      overflow: hidden;
+      animation: pulse-ring 2.2s 1.5s infinite;
+    }
+
+    .cta-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.18) 0%, transparent 60%);
+      border-radius: inherit;
+    }
+
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(34,197,94,.5); }
+    .cta-btn:active { transform: translateY(0); }
+
+    /* ─── Gift ─── */
+    .gift-banner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #fff7ed;
+      border: 1.5px solid #fed7aa;
+      border-radius: var(--radius);
+      margin: 0 20px 32px;
+      padding: 14px 16px;
+    }
+
+    .gift-emoji {
+      font-size: 36px;
+      flex-shrink: 0;
+      line-height: 1;
+      display: inline-block;
+      animation: shake 1.4s ease infinite;
+      transform-origin: center bottom;
+    }
+
+    .gift-text {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #92400e;
+      line-height: 1.5;
+    }
+
+    /* ─── Divider ─── */
+    .dots-divider {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      padding: 18px 0 4px;
+    }
+
+    .dots-divider span {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green-border);
+    }
+
+    .dots-divider span:nth-child(2) {
+      background: var(--green);
+      transform: scale(1.3);
+    }
+
+    /* ─── Keyframes ─── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes shake {
+      0%,100% { transform: rotate(0deg) scale(1); }
+      10%      { transform: rotate(-14deg) scale(1.1); }
+      20%      { transform: rotate(12deg) scale(1.1); }
+      30%      { transform: rotate(-10deg) scale(1.05); }
+      40%      { transform: rotate(8deg) scale(1.05); }
+      50%      { transform: rotate(-5deg) scale(1); }
+      60%      { transform: rotate(4deg); }
+      70%      { transform: rotate(-2deg); }
+      80%      { transform: rotate(1deg); }
+    }
+
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(34,197,94,.45); }
+      70%  { box-shadow: 0 0 0 14px rgba(34,197,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+
+    @media (min-width: 480px) {
+      .page { margin: 32px auto; border-radius: 24px; min-height: unset; }
+    }
+
+    @media (max-width: 360px) {
+      .hero-title { font-size: 22px; }
+      .doctor-card { width: 130px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page" role="main">
+
+    <header class="header" role="banner">
+      <div class="header-date" aria-label="Sana: 27-28-aprel">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="18" rx="3" stroke="#16a34a" stroke-width="2"/>
+          <path d="M3 9h18" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8 2v4M16 2v4" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+          <rect x="7" y="13" width="3" height="3" rx=".5" fill="#16a34a"/>
+          <rect x="11" y="13" width="3" height="3" rx=".5" fill="#16a34a"/>
+        </svg>
+        27-28-aprel
+      </div>
+      <p class="hero-badge">🎓 Bepul Vebinar</p>
+      <time class="header-time" datetime="2025-04-27T20:00">20:00</time>
+    </header>
+
+    <section class="hero" aria-labelledby="main-title">
+      <h1 class="hero-title" id="main-title">
+        <span>KAMUFLYAJ </span> va SIRLI <span>KOKTEYL</span> FORMULASI
+      </h1>
+    </section>
+
+    <div class="desc-card" role="note">
+        Kokteyl tayyorlash va Oq sochlarni bo'yash(kamuflyaj) texnikasi uchun
+      <strong>2 kunlik BEPUL</strong> online masterklass!
+    </div>
+
+    <section class="content" aria-labelledby="learn-title">
+      <h2 class="section-title" id="learn-title">Vebinarda nimalarni<br />o'rganasiz:</h2>
+
+      <div class="two-col">
+
+        <ul class="checklist" aria-label="Vebinar dasturi">
+
+          <li>
+            <span class="check-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2.5 7L5.5 10L11.5 4" stroke="#fff" stroke-width="2.2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span><strong> Har bir soch turi uchun alohida rang texnikasi.</strong> Qalin, ingichka, shikastlangan sochlar uchun individual yondashuv.</span>
+          </li>
+
+          <li>
+            <span class="check-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2.5 7L5.5 10L11.5 4" stroke="#fff" stroke-width="2.2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span><strong> Kamuflyaj texnikasi. </strong> Oq sochlarni qanday bo'yash kerak.</span>
+          </li>
+
+          <li>
+            <span class="check-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2.5 7L5.5 10L11.5 4" stroke="#fff" stroke-width="2.2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span>Murakkab ranglarni chiqarish texnikasi. <strong> Balayage, Ombré, Airtouch </strong> uchun maxsus kokteyllar</span>
+          </li>
+
+          <li>
+            <span class="check-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2.5 7L5.5 10L11.5 4" stroke="#fff" stroke-width="2.2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span><strong> Xatoliklarni tuzatish va oldini olish.</strong> Agar rang noto'g'ri chiqsa nima qilish kerak?</span>
+          </li>
+
+        </ul>
+
+        <aside class="doctor-card" aria-label="Mutaxassis haqida">
+          <div class="doctor-img-wrap">
+            <img src="expert.png" alt="Nargiza Khayitbayevna" />
+          </div>
+          <div class="doctor-info">
+            <p class="doctor-name">Nargiza<br/>Khayitbayevna</p>
+            <p class="doctor-title">10 yillik tajribaga ega Kolorist</p>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <div class="dots-divider" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="telegram.html" class="cta-btn" role="button" aria-label="Vebinarga ro'yxatdan o'tish">
+        Bepul qatnashish
+      </a>
+    </div>
+
+    <div class="gift-banner" role="note" aria-label="Sovg'a">
+      <span class="gift-emoji" aria-hidden="true">🎁</span>
+      <p class="gift-text">
+        Ro'yxatdan o'tganlarga <strong>"Kraskalar to'plami"</strong> qo'llanmasi sovg'a
+      </p>
+    </div>
+
+  </main>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID'); // <-- shu yerga Pixel ID'ingizni qo'ying
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+</body>
+</html>

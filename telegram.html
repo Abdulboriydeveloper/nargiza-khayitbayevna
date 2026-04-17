@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabriklaymiz! – Nargiza Khayitbayevna</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:        #22c55e;
+      --green-dark:   #16a34a;
+      --green-light:  #dcfce7;
+      --green-border: #bbf7d0;
+      --tg:           #229ED9;
+      --tg-dark:      #1a7fb0;
+      --text:         #111827;
+      --text-muted:   #6b7280;
+      --white:        #ffffff;
+      --bg:           #f8fafc;
+      --radius:       14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 480px;
+      margin: 0 auto;
+      background: var(--white);
+      min-height: 100vh;
+      position: relative;
+      box-shadow: 0 0 60px rgba(0,0,0,.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px 60px;
+      text-align: center;
+    }
+
+    /* ─── Success Icon ─── */
+    .success-circle {
+      width: 90px;
+      height: 90px;
+      background: var(--green-light);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-bottom: 24px;
+      animation: popIn .6s cubic-bezier(.175,.885,.32,1.275) both;
+    }
+
+    .success-circle svg {
+      animation: drawCheck .5s .4s ease both;
+      stroke-dasharray: 40;
+      stroke-dashoffset: 40;
+    }
+
+    /* ─── Heading ─── */
+    .ty-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(26px, 6vw, 34px);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 14px;
+      animation: fadeUp .6s .2s ease both;
+    }
+
+    .ty-title span { color: var(--green-dark); }
+
+    .ty-sub {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 320px;
+      margin: 0 auto 32px;
+      animation: fadeUp .6s .3s ease both;
+    }
+
+    /* ─── Info Card ─── */
+    .info-card {
+      width: 100%;
+      background: #f0fdf4;
+      border: 2px solid var(--green-border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      animation: fadeUp .6s .4s ease both;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #166534;
+    }
+
+    .info-row + .info-row {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--green-border);
+    }
+
+    .info-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    /* ─── Telegram Button ─── */
+    .tg-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, #229ED9 0%, #1a7fb0 100%);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-decoration: none;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 28px rgba(34,158,217,.4);
+      transition: transform .18s ease, box-shadow .18s ease;
+      animation: fadeUp .6s .5s ease both, pulse-tg 2.4s 2s infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tg-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.15) 0%, transparent 60%);
+      border-radius: inherit;
+    }
+
+    .tg-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(34,158,217,.5); }
+    .tg-btn:active { transform: translateY(0); }
+
+    .tg-btn svg { flex-shrink: 0; }
+
+    /* ─── Note ─── */
+    .note {
+      margin-top: 20px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      animation: fadeUp .6s .6s ease both;
+    }
+
+    /* ─── Keyframes ─── */
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(.4); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes drawCheck {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse-tg {
+      0%   { box-shadow: 0 0 0 0 rgba(34,158,217,.45); }
+      70%  { box-shadow: 0 0 0 14px rgba(34,158,217,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,158,217,0); }
+    }
+
+    @media (min-width: 480px) {
+      .page { margin: 32px auto; border-radius: 24px; min-height: unset; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page" role="main">
+
+    <!-- Success Icon -->
+    <div class="success-circle" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+        <path d="M9 22L18 31L35 14"
+              stroke="#16a34a" stroke-width="4"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <h1 class="ty-title">
+      Tabriklaymiz! 🎉<br/>
+      <span>Ro'yxatdan o'tdingiz!</span>
+    </h1>
+
+    <p class="ty-sub">
+      Vebinar haqida barcha ma'lumotlar va eslatmalar Telegram kanalimizda bo'ladi. Hoziroq qo'shiling!
+    </p>
+
+    <!-- Event info -->
+    <div class="info-card" role="note">
+      <div class="info-row">
+        <span class="info-icon">📅</span>
+        <span>27–28 aprel • Soat 20:00</span>
+      </div>
+      <div class="info-row">
+        <span class="info-icon">🎁</span>
+        <span>"Kraskalar to'plami" qo'llanmasi — sovg'a!</span>
+      </div>
+    </div>
+
+    <!-- Telegram CTA -->
+    <a
+      href="https://t.me/YOUR_CHANNEL_USERNAME"
+      class="tg-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Telegram kanalga qo'shilish"
+      id="tg-join-btn"
+    >
+      <!-- Telegram icon -->
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M22 2L11 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Telegram kanalga qo'shilish
+    </a>
+
+    <p class="note">
+      Kanalga qo'shilmasangiz, vebinar havolasini olmasligi mumkin.<br/>
+      Barcha yangiliklar kanalda e'lon qilinadi.
+    </p>
+
+  </main>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID'); // <-- shu yerga Pixel ID'ingizni qo'ying
+    fbq('track', 'PageView');
+    fbq('track', 'Lead'); // Thank you page = Lead event
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=Lead&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <script>
+    // Telegram tugma bosilganda pixel'ga "Contact" eventi yuborish
+    document.getElementById('tg-join-btn').addEventListener('click', function() {
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact');
+      }
+    });
+  </script>
+
+</body>
+</html>
