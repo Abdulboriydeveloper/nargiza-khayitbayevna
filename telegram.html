@@ -369,7 +369,15 @@
 
   </main>
 
-  <!-- Meta Pixel — deferred -->
+  <!--
+    META PIXEL — TO'G'RILANGAN:
+    ✅ Lead bu yerda YUKLANMAYDI — u index.html da form submitda bir marta yongan
+    ✅ Bu yerda faqat: PageView + CompleteRegistration
+    ✅ Telegram bosilganda: Contact event
+    
+    SABAB: Lead ikki marta yonsa → Meta 2x hisoblaydi → 5600 ko'rsatadi
+    aslida foydalanuvchi 2700 ta — bu to'g'ri son.
+  -->
   <script>
     window.addEventListener('load', function () {
       setTimeout(function () {
@@ -381,19 +389,32 @@
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)
         }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
         fbq('init', '3820441638259737');
+
+        // ✅ 1. Sahifa ko'rildi
         fbq('track', 'PageView');
-        fbq('track', 'Lead');
+
+        // ✅ 2. Ro'yxatdan o'tish yakunlandi (Lead EMAS — Lead index.html da yongan)
+        fbq('track', 'CompleteRegistration', {
+          value: 1,
+          currency: 'USD',
+          status: 'submitted'
+        });
+
       }, 0);
     });
 
+    // ✅ 3. Telegram tugmasi bosilganda
     document.getElementById('tg-join-btn').addEventListener('click', function () {
-      if (typeof fbq === 'function') fbq('track', 'Contact');
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact', { value: 1, currency: 'USD' });
+      }
     });
   </script>
   <noscript>
     <img height="1" width="1" style="display:none" alt=""
-         src="https://www.facebook.com/tr?id=3820441638259737&ev=Lead&noscript=1" />
+         src="https://www.facebook.com/tr?id=3820441638259737&ev=CompleteRegistration&noscript=1" />
   </noscript>
 
 </body>
