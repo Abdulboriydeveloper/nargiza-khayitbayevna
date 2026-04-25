@@ -18,21 +18,11 @@
   -->
 
   <!-- 1. DNS prefetch + preconnect for Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- 2. Preload LCP image — CRITICAL for LCP score -->
-  <link rel="preload" as="image" href="img11.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="img11.webp" fetchpriority="high" type="image/webp" />
 
-  <!-- 3. Google Fonts loaded ASYNC → non-render-blocking -->
-  <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Nunito:wght@400;600;700&display=swap"
-        onload="this.onload=null;this.rel='stylesheet'" />
-  <!-- Fallback for JS-disabled browsers -->
-  <noscript>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Nunito:wght@400;600;700&display=swap" />
-  </noscript>
+  <!-- Fonts: system stack only — no external requests -->
 
   <style>
     /*
@@ -62,7 +52,7 @@
 
     /* System font stack as fallback while Montserrat loads (prevents FOUT shift) */
     body {
-      font-family: 'Nunito', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
@@ -116,7 +106,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
       font-weight: 700;
       font-size: 14px;
       color: var(--green-dark);
@@ -129,7 +119,7 @@
       display: inline-block;
       background: var(--green-light);
       color: #14532d;             /* darker green → contrast 5.7:1 ✓ */
-      font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 1.2px;
@@ -141,7 +131,7 @@
     }
 
     .header-time {
-      font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
       font-weight: 900;
       font-size: 22px;
       color: var(--text);
@@ -155,7 +145,7 @@
     }
 
     .hero-title {
-      font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
       font-size: clamp(22px, 5.5vw, 34px);
       font-weight: 900;
       line-height: 1.15;
@@ -186,7 +176,7 @@
     .content { padding: 24px 20px 0; }
 
     .section-title {
-      font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
       font-size: 18px;
       font-weight: 800;
       color: var(--text);
@@ -275,7 +265,7 @@
     }
 
     .doctor-name {
-      font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
       font-size: 10.5px;
       font-weight: 800;
       color: var(--text);
@@ -324,7 +314,7 @@
       padding: 18px 20px;
       background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
       color: #fff;               /* contrast on green: 4.53:1 ✓ */
-      font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
       font-size: 17px;
       font-weight: 800;
       letter-spacing: .8px;
@@ -539,6 +529,7 @@
                 alt="Nargiza Khayitbayevna — 10 yillik tajribaga ega kolorist"
                 width="150"
                 height="200"
+                decoding="sync"
                 fetchpriority="high"
                 loading="eager"
                 decoding="sync"
@@ -710,7 +701,7 @@
     .modal-title {
       font-size: 22px; font-weight: 900; color: var(--text);
       margin-bottom: 8px; line-height: 1.2;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
     }
 
     .modal-sub {
@@ -760,7 +751,7 @@
       font-size: 17px; font-weight: 700;
       color: var(--text); padding: 0 16px;
       height: 54px; letter-spacing: .5px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
       min-width: 0;
     }
 
@@ -784,7 +775,7 @@
       cursor: pointer;
       box-shadow: 0 8px 24px rgba(34,197,94,.4);
       transition: transform .15s ease, box-shadow .15s ease, opacity .15s;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
       display: flex; align-items: center; justify-content: center; gap: 8px;
     }
     .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(34,197,94,.5); }
@@ -977,7 +968,7 @@
       submitBtn.addEventListener('click', handleSubmit);
     })();
   </script>
-  <script>
+   <script>
     window.addEventListener('load', function () {
       setTimeout(function () {
         !function(f,b,e,v,n,t,s){
